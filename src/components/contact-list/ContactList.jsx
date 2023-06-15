@@ -1,27 +1,17 @@
+import React from 'react';
 
+const ContactList = ({ dataContact }) => {
+  const contact = dataContact.contacts;
+  console.log(contact);
 
-export default function listItem({ dataContact, deleteList }) {
-  //   const contact = dataContact.contacts;
-console.log(dataContact);
-  function deleteContact(e) {
-    const { id } = e.target;
-    deleteList(id);
-  }
+  <ul>
+    {contact.map(obj => (
+      <li key={obj.id}>
+        {obj.name}: {obj.number}
+        <button id={obj.id}>Delete</button>
+      </li>
+    ))}
+  </ul>;
+};
 
-  
-    return (
-      <ul>
-        {dataContact.contacts.map(obj => {
-          return (
-            <li key={obj.id}>
-              {obj.name}: {obj.number}
-              <button id={obj.id} onClick={deleteContact}>
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  
-}
+export default ContactList;

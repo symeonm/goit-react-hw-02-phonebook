@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
-
-export default class formAdd extends Component {
+import PropTypes from 'prop-types';
+export default class FormAdd extends Component {
   state = {
     name: '',
     number: '',
@@ -59,4 +59,8 @@ export default class formAdd extends Component {
       </form>
     );
   }
+}
+
+FormAdd.propTypes = {
+onSubmit: PropTypes.func.isRequired,
 }
