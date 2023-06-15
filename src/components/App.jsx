@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import ContactForm from './contact-form/ContactForm';
-import ContactList from './contact-list/ContactList'
+import ContactList from './contact-list/ContactList';
 
 export class App extends Component {
   state = {
@@ -8,26 +8,29 @@ export class App extends Component {
     filter: '',
   };
 
-  addInState = (data) => {
-    const contact = {name: data.name, number: data.number, id: data.id}
-    this.setState({contacts: [contact]});
+  addInState = data => {
+    const contact = { name: data.name, number: data.number, id: data.id };
+    this.setState({ contacts: [contact] });
+    console.log((this.state));
   };
 
-  deleteContactState = (id) => {
-const {contacts} = this.state;
-const updContacts = contacts.filter((obj) => obj.id !== id)
-this.setState({contacts: updContacts})
-  }
+  deleteContactState = id => {
+    const { contacts } = this.state;
+    const updContacts = contacts.filter(obj => obj.id !== id);
+    this.setState({ contacts: updContacts });
+  };
 
   render() {
     return (
       <div>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addInState} />
-
         <h2>Contacts</h2>
-  {/* <Filter ... /> */}
-  <ContactList dataContact={this.state} deleteList={this.deleteContactState}/>
+        {/* <Filter ... /> */}
+          <ContactList
+            dataContact={this.state}
+            deleteList={this.deleteContactState}
+          />
       </div>
     );
   }

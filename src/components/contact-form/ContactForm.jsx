@@ -16,8 +16,7 @@ export default class formAdd extends Component {
   };
 
   handleChange = e => {
-    const { name, value, id } = e.target;
-    this.setState(prev => ({[name]: value, id: id}))
+    this.setState({[e.target.name]: e.target.value, id: e.target.id})
   }
 
   reset = () => {
