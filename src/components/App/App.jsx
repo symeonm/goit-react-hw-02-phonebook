@@ -15,7 +15,7 @@ export class App extends Component {
   };
 
   addInState = data => {
-    const nameContact = this.state.contacts.find(obj => obj.name === data.name);
+    const nameContact = this.state.contacts.find(obj => obj.name.toLowerCase() === data.name.toLowerCase());
     console.log(nameContact);
     if (!nameContact) {
       const contact = { name: data.name, number: data.number, id: data.id };

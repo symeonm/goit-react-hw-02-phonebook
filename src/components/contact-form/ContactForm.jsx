@@ -23,7 +23,7 @@ export default class FormAdd extends Component {
   }
 
   reset = () => {
-    this.setState({ name: '', number: '', id: '' });
+    this.setState({ name: ''.toLowerCase(), number: '', id: '' });
   };
 
   
